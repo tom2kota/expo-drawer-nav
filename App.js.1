@@ -1,0 +1,55 @@
+import * as React from 'react';
+import {Text, View, Button, TouchableOpacity} from 'react-native';
+import HomeScreen from './src/screens/HomeScreen';
+import ComponentsScreen from './src/screens/ComponentsScreen';
+import ListScreen from './src/screens/ListScreen';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+
+export default function App() {
+    const Stack = createStackNavigator();
+    return (
+        <>
+            <View style={{flex: 1}}>
+                <NavigationContainer>
+                    <Stack.Navigator>
+                        <Stack.Screen
+                            name="Home"
+                            component={HomeScreen}
+                            options={{title: 'Welcome'}}
+                        />
+                        <Stack.Screen name="Profile" component={ListScreen}/>
+                    </Stack.Navigator>
+                </NavigationContainer>
+            </View>
+
+            <View
+                style={{
+                    flex: 1,
+                    padding: 30,
+                    textAlign: 'center',
+                    backgroundColor: 'lightgray',
+                }}>
+                <Button title="button 1" onPress={() => console.log('pressed!')}/>
+
+                <TouchableOpacity onPress={() => console.log('pressed 2 ')}>
+                    <Text>HOME</Text>
+                </TouchableOpacity>
+
+                <HomeScreen/>
+
+                <ComponentsScreen header="Header" subheader="Subheader"/>
+            </View>
+
+            <View
+                style={{
+                    flex: 1,
+                    padding: 30,
+                    textAlign: 'center',
+                    backgroundColor: 'wheat',
+                }}>
+                <ListScreen/>
+            </View>
+        </>
+    );
+}
