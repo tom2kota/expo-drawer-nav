@@ -9,7 +9,7 @@ const HomeScreen = ({navigation}) => {
             <Text style={styles.textStyle}>{screenTitle}</Text>
             <Button
                 accessibilityLabel={buttonTitle}
-                style={styles.buttonStyle}
+                color={styles.buttonStyle.color}
                 title={buttonTitle}
                 onPress={() => navigation.navigate('COMPONENTS')}/>
         </View>

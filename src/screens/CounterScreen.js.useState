@@ -1,0 +1,55 @@
+import React, {useState} from 'react'
+import {View, Button, Text, StyleSheet} from 'react-native'
+
+const CounterScreen = () => {
+    const [counter, setCounter] = useState(10);
+    const screenTitle = 'Counter Screen';
+    const screenSubtitle = 'Using React Hooks: useState';
+    const buttonTitle = {
+        increase: 'INCREMENT +1',
+        decrease: 'DECREMENT -1',
+    }
+
+    return (
+        <View style={styles.containerStyle}>
+            <Text style={styles.titleStyle}>{screenTitle}</Text>
+            <Text style={styles.subtitleStyle}>{screenSubtitle}</Text>
+            <Button
+                accessibilityLabel={buttonTitle.increase}
+                color={styles.buttonStyle.color}
+                title={buttonTitle.increase}
+                onPress={() => setCounter(counter + 1)}/>
+            <Button
+                accessibilityLabel={buttonTitle.decrease}
+                color={styles.buttonStyle.color}
+                title={buttonTitle.decrease}
+                onPress={() => setCounter(counter - 1)}/>
+            <Text style={styles.subtitleStyle}>{`Result: ${counter}`}</Text>
+        </View>
+    )
+}
+
+
+const styles = StyleSheet.create({
+    containerStyle: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center'
+    },
+    titleStyle: {
+        fontSize: 30,
+        color: '#3a19f8',
+        padding: 10
+    },
+    subtitleStyle: {
+        fontSize: 17,
+        color: '#5a595c',
+        padding: 30
+    },
+    buttonStyle: {
+        color: '#34c70d'
+    }
+});
+
+
+export default CounterScreen
