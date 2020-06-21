@@ -23,6 +23,8 @@
     ],
     "ios": {
       "supportsTablet": true
-    }
+    },
+    "description": "React Native Drawer Navigation basic template for localhost ",
+    "githubUrl": "https://github.com/tom2kota/expo-drawer-nav/"
   }
 }
